@@ -38,7 +38,7 @@ def get_sales(url = 'https://python.zgulde.net/api/v1/sales?page='):
 def combined(sales, stores, items):
  
     both = sales.merge(items, left_on='item', right_on='item_id')
-    both = combo.merge(stores, left_on='store', right_on='store_id')
+    both = both.merge(stores, left_on='store', right_on='store_id')
     both.drop(columns=['item', 'store'], inplace=True)
 
     return both
